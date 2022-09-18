@@ -10,7 +10,7 @@
 :root {
   --bg-color-white: #72eb3a;
   --bg-color-light: #01c380;
-  --bg-color-mid: #132d46;
+  --bg-color-mid: #598dbe;
   --bg-color-dark: #1b1d24;
 }
 
@@ -44,6 +44,10 @@ body {
   padding-right: 2rem;
   padding-top: 1rem;
 
+  cursor: pointer;
+}
+
+.nav-links {
   cursor: pointer;
 }
 
@@ -92,17 +96,21 @@ header .logo .logo-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(33deg)
-    brightness(125%) contrast(104%);
+  /* filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(33deg)
+    brightness(125%) contrast(104%); */
   transition: 0.1s;
 }
 
-header .logo .logo-pic:hover {
+/* header .logo .logo-pic:hover {
   filter: invert(51%) sepia(83%) saturate(1804%) hue-rotate(123deg)
     brightness(95%) contrast(105%);
-}
+} */
 
 /* Header -> middle (nav section) */
+
+.logo2 {
+  width: 12rem;
+}
 
 header ul {
   display: flex;
@@ -202,7 +210,7 @@ header a .tooltip .tool-tip-title {
   padding-bottom: 0.5rem;
 
   border-bottom: 1px solid var(--bg-color-light);
-  color: white;
+  color: var(--bg-color-light);
 }
 
 header a .tooltip .tool-tip-page {
@@ -218,7 +226,7 @@ header a .tooltip > * {
 }
 
 header a .tooltip-section .tool-tip-page:hover {
-  color: var(--bg-color-light);
+  color: var(--bg-color-dark);
 }
 
 /* Header Arrow-DropDown */
@@ -322,7 +330,7 @@ header .scan a {
   color: var(--bg-color-light);
 }
 
-header .demo {
+.demo {
   background-color: var(--bg-color-light);
 
   position: relative;
@@ -406,7 +414,7 @@ header .menu input {
   justify-content: center;
   align-items: center;
   color: white;
-  min-height: 35rem;
+  min-height: 40rem;
   background-color: hsla(202, 100%, 19%, 1);
   background-image: radial-gradient(
       at 40% 20%,
@@ -455,35 +463,44 @@ header .menu input {
 }
 
 .first .buttons button {
-  width: 250px;
-  height: 60px;
+  width: 230px;
+  height: 55px;
   cursor: pointer;
   border: none;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #7f5a83;
-  background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  background-image: linear-gradient(315deg, var(--bg-color-mid) 0%, white 74%);
   background-size: 200% 100%;
   background-position: left;
   background-repeat: no-repeat;
   transition: 500ms;
-  margin-top: 2rem;
+  margin: 1.5rem;
 }
 
-.first button:before {
+.first .btn-one:before {  
   content: "Get Started Today";
+}
+
+.first .btn-two:before {  
+  content: "View Demo";
+}
+
+
+.first button:before {
   color: rgba(255, 255, 255, 0.752);
   font-size: 16px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 240px;
+  width: 225px;
   height: 50px;
-  background-color: #1b2845;
-  background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+  background-color: var(--bg-color-light);
   transition: 500ms;
+  border-radius: 2px;;
 }
 
 .first button:hover {
@@ -491,7 +508,8 @@ header .menu input {
 }
 
 .first button:hover:before {
-  color: rgb(255, 255, 255);
+  background-color: rgb(53, 207, 145);
+  color: var(--bg-color-dark)
 }
 
 .first button:focus {
@@ -512,6 +530,7 @@ header .menu input {
 }
 
 @media (max-width: 1285px) {
+
   .first .text {
     margin-bottom: -4rem;
   }
@@ -522,9 +541,18 @@ header .menu input {
 }
 
 @media (max-width: 750px) {
+
+  .first {
+    padding-top: 5rem;
+  }
+
   .first .video {
     width: 25rem;
     height: 15rem;
+  }
+
+  .first .buttons {
+    flex-direction: column;
   }
 }
 
@@ -532,25 +560,37 @@ header .menu input {
 
 /* second-section (header) */
 .main-header {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start; */
+  padding: 2rem 5rem 0rem 5rem;
+  /* text-align: center; */
   color: white;
-  background-color: var(--bg-color-dark);
+  background-color: var(--bg-color-mid);
+
+  /* background-image: url("images/background-white.jpeg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: right;
+  color: var(--bg-color-dark); */
 }
+
 
 .main-header .title {
   font-weight: 700;
+  display: flex;
+  gap: 2rem;
 }
 
 .main-header .description {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
   justify-content: center;
   width: 50vw;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid var(--bg-color-light);
+  position: relative;
 }
 
 .main-body {
@@ -561,6 +601,7 @@ header .menu input {
   color: white;
   flex-wrap: wrap;
   height: 38rem;
+  background-color: var(--bg-color-mid);
 }
 
 .main-picture {
@@ -574,12 +615,12 @@ header .menu input {
 
 .main-picture .supplychain-picture,
 .main-picture .dueDiligence-picture {
+  margin-left: 3rem;
   width: 35rem;
   height: 25rem;
-  object-fit: cover;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1250px) {
   .main-picture {
     display: none;
   }
@@ -643,7 +684,7 @@ header .menu input {
 }
 .text button,
 .learn-more {
-  width: 12rem;
+  width: 18rem;
   height: auto;
 }
 .circle {
@@ -656,18 +697,18 @@ header .menu input {
   background: var(--bg-color-dark);
   border-radius: 1.625rem;
 }
-
+/* 
 .i {
   background-image: url("images/background-black.webp");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: left;
   background-size: 120rem 80rem;
-}
+} */
 
 .ii {
   background-image: url("images/background-white.jpeg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   background-position: right;
   color: var(--bg-color-dark);
@@ -947,7 +988,7 @@ header .menu input {
 /* Fourth Section */
 
 .fourth {
-  min-height: 38rem;
+  min-height: 60rem;
   color: white;
 
   background-color: hsla(202, 100%, 19%, 1);
@@ -970,11 +1011,11 @@ header .menu input {
 .container-card1,
 .container-card2,
 .container-card3 {
-  width: 20rem;
+  width: 25rem;
   margin: 2rem;
-  height: 25rem;
+  height: 33rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.15);
 
   backdrop-filter: blur(5px);
@@ -995,13 +1036,15 @@ header .menu input {
   backdrop-filter: blur(5.1px);
   -webkit-backdrop-filter: blur(5.1px);
   border: 1px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+
 }
 
 .container-card1 .background,
 .container-card2 .background,
 .container-card3 .background {
   width: 100%;
-  height: 25%;
+  height: 15%;
   position: relative;
 }
 
@@ -1051,8 +1094,8 @@ header .menu input {
 }
 
 .circle-background {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
@@ -1064,10 +1107,20 @@ header .menu input {
   justify-content: center;
 }
 
+.circle-background img {
+  width: 80%;
+  height: 80%;
+}
+
+.container-card1 .circle-background img {
+  width: 70%;
+  height: 70%;
+}
+
 .cards-box {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -1084,12 +1137,13 @@ header .menu input {
 
 .cards-text .title {
   font-size: 2rem;
-  margin-top: 1rem;
   padding: 0;
 }
 
 .cards-text .description {
   padding: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
 }
 
 .cards-text a {
@@ -1215,15 +1269,24 @@ header .menu input {
 .fifth button {
   padding: 1rem;
   margin: 1rem;
-  border: none;
   color: white;
-  background-color: rgb(97, 93, 202);
+  background-color: var(--bg-color-light);
   transition: 0.2s;
   cursor: pointer;
+
+  border: none;
+  border-radius: 0.1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .fifth button:hover {
-  background: rgb(55, 52, 115);
+ 
+  box-shadow: rgba(227, 247, 255, 0.12) 0px 2px 4px 0px,
+    rgba(209, 241, 255, 0.32) 0px 2px 16px 0px;
+}
+
+.fifth button:active {
+  border: 0.5px solid rgb(215, 215, 215);
 }
 
 /* Footer Section */
@@ -1245,13 +1308,15 @@ header .menu input {
   min-height: 200px;
   flex: 1 1 25%;
   padding: 1rem;
+  display: flex; 
+  flex-direction: column;
 }
 
 .footerOne .box h3 {
   padding: 1rem;
   text-transform: uppercase;
   cursor: text;
-  color: #696e79;
+  color: var(--bg-color-light);
 }
 
 .footerOne .box p {
@@ -1263,7 +1328,7 @@ header .menu input {
 }
 
 .footerOne .box p:hover {
-  color: var(--bg-color-light);
+  color: var(--bg-color-dark);
 }
 
 /* Footer bottom section */
@@ -1272,11 +1337,11 @@ header .menu input {
   align-self: center;
   min-height: 7rem;
   width: 95%;
-  border-top: 1px solid #696e79;
+  border-top: 1px solid var(--bg-color-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--bg-color-dark);
 }
 
 .footerTwo .left {
@@ -1286,9 +1351,15 @@ header .menu input {
 }
 
 .footerTwo .logo-pic {
-  filter: invert(51%) sepia(83%) saturate(1804%) hue-rotate(123deg)
-    brightness(95%) contrast(105%);
+  /* filter: brightness(0) saturate(100%) invert(8%) sepia(20%) saturate(586%) hue-rotate(189deg) brightness(98%) contrast(93%); */
+
+  /* filter: invert(51%) sepia(83%) saturate(1804%) hue-rotate(123deg)
+    brightness(95%) contrast(105%); */
   width: 4rem;
+}
+
+.footerTwo .logo-pic2 {
+  width: 8rem;
 }
 
 .footerTwo .logo-text {
@@ -1296,7 +1367,7 @@ header .menu input {
 }
 
 .footerTwo .right {
-  color: var(--bg-color-light);
+  color: var(--bg-color-dark);
 }
 
 @media (max-width: 660px) {
